@@ -1,0 +1,19 @@
+<p>Autônomo para descobrir se um número binário é par ou ímpar.</p>
+<div class="row">
+  <div class="column">
+    <input
+      [ngModel]="inputValue"
+      (ngModelChange)="onChange($event)"
+      placeholder="Sequência"
+    />
+  </div>
+  <a class="column" *ngIf="accept">Aceita</a>
+  <a class="column" *ngIf="!accept">Recusa</a>
+</div>
+<div class="column" *ngIf="sequence">
+  Sequência: {{ sequence }}<br />
+  Estado: {{ autonomo.states }}<br />
+  Alfabeto: {{ autonomo.alphabet }}<br />
+  Estado Inicial: {{ autonomo.initialState }}<br />
+  Estado de Aceitação: {{ autonomo.finalState }}<br />
+</div>

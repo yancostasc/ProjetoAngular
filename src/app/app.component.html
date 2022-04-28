@@ -7,8 +7,8 @@
       placeholder="Sequência"
     />
   </div>
-  <a class="column" *ngIf="accept">Aceita</a>
-  <a class="column" *ngIf="!accept">Recusa</a>
+  <a class="column accepted" *ngIf="accept">Aceita</a>
+  <a class="column rejected" *ngIf="!accept">Recusada</a>
 </div>
 <div class="column" *ngIf="sequence">
   Sequência: {{ sequence }}<br />

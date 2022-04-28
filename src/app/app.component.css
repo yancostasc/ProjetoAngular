@@ -8,6 +8,14 @@
   padding: 10px;
 }
 
+.accepted {
+  color: rgb(20, 100, 20);
+}
+
+.rejected {
+  color: rgb(136, 10, 10);
+}
+
 .row:after {
   content: '';
   display: table;

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DeterministicComponent } from '../finiteAutonomous/views/deterministic/deterministic.component';
+import { DeterministicComponent } from './views/deterministic/deterministic.component';
 
 const routes: Routes = [
   {

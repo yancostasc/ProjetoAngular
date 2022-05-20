@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Automato } from '../../../entities/automato';
-import { unrepeated } from '../../../shared/utils/number-utils';
+import { unrepeated } from '../../../../shared/utils/number-utils';
+import { Automato } from '../../../finiteAutonomous/entities/automato';
 
 @Component({
   selector: 'app-deterministic',
   templateUrl: './deterministic.component.html',
   styleUrls: ['./deterministic.component.css'],
 })
-export class DeterministicComponent {
+export class DeterministicComponent implements OnInit {
+  ngOnInit(): void {}
+
   inputValue: string;
   accept: boolean;
   autonomo: Automato;

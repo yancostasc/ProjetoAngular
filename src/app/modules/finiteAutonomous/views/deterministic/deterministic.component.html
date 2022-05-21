@@ -1,19 +1,31 @@
-<p>Autônomo para descobrir se um número binário é par ou ímpar.</p>
-<div class="row">
-  <div class="column">
-    <input
-      [ngModel]="inputValue"
-      (ngModelChange)="onChange($event)"
-      placeholder="Sequência"
-    />
+<div class="uk-container">
+  <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+    <h3 class="uk-card-title">Autômato Finito Determinístico</h3>
+    <p>Descubra se um número binário é par ou ímpar.</p>
+    <div class="uk-column-1-2">
+      <input
+        [ngModel]="inputValue"
+        (ngModelChange)="onChange($event)"
+        placeholder="Sequência"
+        class="uk-input"
+      />
+      <div>
+        <a class="uk-text-success" *ngIf="accept">
+          Aceita
+          <i class="fa-solid fa-check"></i>
+        </a>
+        <a class="uk-text-danger" *ngIf="!accept">
+          Recusada
+          <i class="fa-solid fa-xmark"></i>
+        </a>
+      </div>
+    </div>
+    <div class="column" *ngIf="sequence">
+      Sequência: {{ sequence }}<br />
+      Estado: {{ autonomo.states }}<br />
+      Alfabeto: {{ autonomo.alphabet }}<br />
+      Estado Inicial: {{ autonomo.initialState }}<br />
+      Estado de Aceitação: {{ autonomo.finalState }}<br />
+    </div>
   </div>
-  <a class="column accepted" *ngIf="accept">Aceita</a>
-  <a class="column rejected" *ngIf="!accept">Recusada</a>
-</div>
-<div class="column" *ngIf="sequence">
-  Sequência: {{ sequence }}<br />
-  Estado: {{ autonomo.states }}<br />
-  Alfabeto: {{ autonomo.alphabet }}<br />
-  Estado Inicial: {{ autonomo.initialState }}<br />
-  Estado de Aceitação: {{ autonomo.finalState }}<br />
 </div>

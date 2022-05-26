@@ -1,0 +1,15 @@
+<aside id="left-col" class="uk-light uk-visible@s">
+  <a routerLink="/deterministic"> </a>
+  <div class="bar-wrap">
+    <ul class="uk-nav-default" style="list-style: none;" uk-nav>
+      <li [ngClass]="{ 'uk-active': hasRoute('/deterministic') }">
+        <a
+          routerLink="/deterministic"
+          uk-tooltip="title: Determinístico; pos: right"
+        >
+          <i class="fa-solid fa-robot fa-lg"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</aside>

@@ -7,7 +7,31 @@
           routerLink="/deterministic"
           uk-tooltip="title: Determinístico; pos: right"
         >
-          <i class="fa-solid fa-robot fa-lg"></i>
+          <i class="fa-solid fa-user-astronaut fa-lg"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="bar-wrap">
+    <ul class="uk-nav-default" style="list-style: none;" uk-nav>
+      <li [ngClass]="{ 'uk-active': hasRoute('/non-deterministic') }">
+        <a
+          routerLink="/non-deterministic"
+          uk-tooltip="title: Não Determinístico; pos: right"
+        >
+          <i class="fa-solid fa-user-secret fa-lg"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="bar-wrap">
+    <ul class="uk-nav-default" style="list-style: none;" uk-nav>
+      <li [ngClass]="{ 'uk-active': hasRoute('/task-list') }">
+        <a
+          routerLink="/task-list"
+          uk-tooltip="title: Lista de Tarefas; pos: right"
+        >
+          <i class="fa-solid fa-list-check fa-lg"></i>
         </a>
       </li>
     </ul>

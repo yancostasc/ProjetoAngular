@@ -5,15 +5,11 @@
   bottom: 0;
   overflow-x: hidden;
   overflow-y: auto;
-  background-color: #1e6642;
+  background-color: #066a82;
   width: 80px;
   z-index: 2;
 }
 
 .uk-nav-default > li {
   margin-top: 16px;
-}
-
-.fa-lg {
-  min-width: 32px;
 }

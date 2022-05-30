@@ -1,5 +1,15 @@
-<div class="uk-container uk-margin-medium-top uk-margin-large-left">
-  <div class="uk-card uk-card-default uk-card-body uk-width-1-2@m">
+<div class="uk-container-xlarge uk-margin-medium-top uk-margin-large-left">
+  <div
+    class="
+      uk-margin
+      uk-margin-auto-right
+      uk-margin-auto@m
+      uk-width-1-2@s
+      uk-card
+      uk-card-default
+      uk-card-body
+    "
+  >
     <h3 class="uk-card-title">Autômato Finito Determinístico</h3>
     <p>Descubra se um número binário é par ou ímpar.</p>
     <div class="uk-column-1-2">
@@ -9,7 +19,7 @@
         placeholder="Sequência"
         class="uk-input"
       />
-      <div>
+      <div class="uk-margin-top">
         <a class="uk-text-success" *ngIf="accept">
           Aceita
           <i class="fa-solid fa-check"></i>
@@ -20,7 +30,7 @@
         </a>
       </div>
     </div>
-    <div class="column" *ngIf="sequence">
+    <div class="column uk-margin-top" *ngIf="sequence">
       Sequência: {{ sequence }}<br />
       Estado: {{ autonomo.states }}<br />
       Alfabeto: {{ autonomo.alphabet }}<br />

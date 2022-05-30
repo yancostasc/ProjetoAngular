@@ -1,1 +1,17 @@
-/* Add application styles & imports to this file! */
+:root {
+  background-color: #d6eae1;
+}
+
+.uk-container-xlarge > :last-child {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.custom-border {
+  border: 1.8px solid;
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  line-height: 0.3em;
+  vertical-align: 0px;
+}

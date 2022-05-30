@@ -1,0 +1,75 @@
+<div class="uk-container-xlarge uk-margin-medium-top uk-margin-large-left">
+  <div
+    class="
+      uk-margin
+      uk-margin-auto-right
+      uk-margin-auto@m
+      uk-width-1-2@s
+      uk-card
+      uk-card-default
+      uk-card-body
+    "
+  >
+    <form [formGroup]="form">
+      <fieldset class="uk-fieldset">
+        <h3 class="uk-card-title">Tarefas</h3>
+
+        <div class="uk-margin-bottom">
+          <input
+            class="uk-input"
+            type="text"
+            placeholder="Título"
+            maxlength="38"
+            formControlName="title"
+          />
+          <small
+            class="uk-text uk-text-danger"
+            *ngIf="form.controls.title.invalid && !form.controls.title.pristine"
+            >Este campo não pode estar vazio.</small
+          >
+        </div>
+
+        <div class="uk-margin-bottom">
+          <input
+            class="uk-input"
+            type="text"
+            placeholder="Descrição"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="">
+          <button
+            class="uk-button uk-button-primary"
+            [disabled]="form.invalid"
+            (click)="add()"
+          >
+            Criar
+          </button>
+        </div>
+        <hr />
+
+        <div>
+          <div *ngIf="tasks.length == 0">
+            <small>Nenhuma tarefa hoje!</small>
+          </div>
+
+          <dl class="uk-description-list" *ngFor="let todo of tasks">
+            <dt>
+              <input class="uk-checkbox" type="checkbox" />
+              {{ todo.title }}
+              <div class="uk-text-right align-inline">
+                <div>
+                  <a class="option-button" type="button" (click)="remove(todo)">
+                    <i class="far fa-trash-alt fa-lg"></i>
+                  </a>
+                </div>
+              </div>
+            </dt>
+            <dd class="custom-margin-left">{{ todo.description }}</dd>
+          </dl>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>

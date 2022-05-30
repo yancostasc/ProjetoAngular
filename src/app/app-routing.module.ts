@@ -14,6 +14,20 @@ const routes: Routes = [
         (m) => m.DeterministicModule
       ),
   },
+  {
+    path: 'non-deterministic',
+    loadChildren: () =>
+      import('./modules/finiteAutonomous/non-deterministic.module').then(
+        (m) => m.NonDeterministicModule
+      ),
+  },
+  {
+    path: 'task-list',
+    loadChildren: () =>
+      import('./modules/taskList/task-list.module').then(
+        (m) => m.TaskListModule
+      ),
+  },
 ];
 
 @NgModule({

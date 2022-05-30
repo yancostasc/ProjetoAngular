@@ -45,8 +45,7 @@ export class TaskListComponent implements OnInit {
 
   remove(todo: Todo) {
     const index = this.tasks.indexOf(todo);
-    if (index !== -1) {
-      this.tasks.splice(index, 1);
-    }
+    this.tasks.splice(index, 1);
+    this.localSave();
   }
 }

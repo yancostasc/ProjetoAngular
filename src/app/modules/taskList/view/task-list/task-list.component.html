@@ -10,66 +10,144 @@
       uk-card-body
     "
   >
-    <form [formGroup]="form">
-      <fieldset class="uk-fieldset">
-        <h3 class="uk-card-title">Tarefas</h3>
+    <!-- Header -->
+    <div class="d-flex header">
+      <div class="p-2">
+        <h2>Tarefas</h2>
+      </div>
+      <div class="p-2">
+        <i class="bi bi-plus-circle" (click)="showForm()"></i>
+      </div>
+      <!-- TODO: deleteAll -->
+      <!-- <div class="p-2">
+        <i class="bi bi-trash-fill"></i>
+      </div> -->
+    </div>
 
-        <div class="uk-margin-bottom">
-          <input
-            class="uk-input"
-            type="text"
-            placeholder="Título"
-            maxlength="38"
-            formControlName="title"
-          />
-          <small
-            class="uk-text uk-text-danger"
-            *ngIf="form.controls.title.invalid && !form.controls.title.pristine"
-            >Este campo não pode estar vazio.</small
-          >
-        </div>
+    <!-- Form -->
+    <form [formGroup]="form" *ngIf="isCreating" class="uk-margin-small-top">
+      <!-- Title input -->
+      <div class="form-outline mb-2">
+        <input
+          type="text"
+          class="form-control p-2"
+          placeholder="Título"
+          formControlName="title"
+        />
 
-        <div class="uk-margin-bottom">
-          <input
-            class="uk-input"
-            type="text"
-            placeholder="Descrição"
-            formControlName="description"
-          />
-        </div>
+        <small
+          class="text-danger p-2"
+          *ngIf="form.controls.title.invalid && !form.controls.title.pristine"
+          >Este campo não pode estar vazio.</small
+        >
+      </div>
 
-        <div class="">
-          <button
-            class="uk-button uk-button-primary"
-            [disabled]="form.invalid"
-            (click)="add()"
-          >
-            Criar
-          </button>
-        </div>
-        <hr />
+      <!-- Description input -->
+      <div class="form-outline mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Descrição"
+          formControlName="description"
+        />
+      </div>
 
-        <div>
-          <div *ngIf="tasks.length == 0">
-            <small>Nenhuma tarefa hoje!</small>
+      <!-- Create button -->
+      <div class="d-flex flex-row-reverse">
+        <button
+          class="btn btn-primary"
+          [disabled]="form.invalid"
+          (click)="add()"
+        >
+          Adicionar
+        </button>
+      </div>
+    </form>
+    <hr />
+
+    <div *ngIf="tasks.length === 0">
+      <small>Nenhuma tarefa hoje!</small>
+    </div>
+
+    <!-- List das tasks -->
+    <ul class="list-group" *ngFor="let todo of tasks">
+      <div *ngIf="!todo.edit">
+        <li class="list-group-item done" *ngIf="todo.done"></li>
+        <li class="list-group-item undone" *ngIf="!todo.done"></li>
+
+        <li
+          class="
+            list-group-item
+            d-flex
+            justify-content-between
+            align-items-center
+          "
+        >
+          <a>
+            <i
+              class="bi bi-check2 p-2 alignItems"
+              *ngIf="todo.done"
+              (click)="markAsDone(todo)"
+            ></i>
+            <i
+              class="bi bi-x p-2 alignItems"
+              *ngIf="!todo.done"
+              (click)="markAsDone(todo)"
+            ></i>
+          </a>
+          <!-- Titulo e edit do titulo -->
+          <div class="text-uppercase p-2 flex-fill">
+            {{ todo.title }}
+          </div>
+          <a (click)="markAsEdit(todo)">
+            <i class="bi bi-pen p-2"></i>
+          </a>
+          <a (click)="remove(todo)">
+            <i class="bi bi-trash3-fill p-2"></i>
+          </a>
+        </li>
+        <!-- Description e edit do description -->
+        <li
+          class="list-group-item d-flex align-items-center description"
+          *ngIf="todo.description"
+        >
+          <small>{{ todo.description }}</small>
+        </li>
+      </div>
+
+      <div *ngIf="todo.edit">
+        <li class="list-group-item edit"></li>
+
+        <li class="list-group-item d-flex align-items-center">
+          <!-- Titulo e edit do titulo -->
+          <div class="text-uppercase p-2 flex-fill">
+            <input
+              type="text"
+              class="form-control edit-input"
+              placeholder="Novo Título"
+              [value]="todo.title"
+              (change)="changeFn($event, todo, true)"
+            />
           </div>
 
-          <dl class="uk-description-list" *ngFor="let todo of tasks">
-            <dt>
-              <input class="uk-checkbox" type="checkbox" />
-              {{ todo.title }}
-              <div class="uk-text-right align-inline">
-                <div>
-                  <a class="option-button" type="button" (click)="remove(todo)">
-                    <i class="far fa-trash-alt fa-lg"></i>
-                  </a>
-                </div>
-              </div>
-            </dt>
-            <dd class="custom-margin-left">{{ todo.description }}</dd>
-          </dl>
-        </div>
-      </fieldset>
-    </form>
+          <a (click)="markAsEdit(todo)">
+            <i class="bi bi-pen p-2"></i>
+          </a>
+        </li>
+        <!-- Description e edit do description -->
+        <li
+          class="list-group-item d-flex align-items-center description"
+          *ngIf="todo.description"
+        >
+          <input
+            type="text"
+            class="form-control edit-input"
+            placeholder="Nova Descrição"
+            [value]="todo.description"
+            (change)="changeFn($event, todo, false)"
+          />
+        </li>
+      </div>
+    </ul>
   </div>
 </div>

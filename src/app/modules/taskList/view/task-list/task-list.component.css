@@ -1,6 +1,37 @@
-.custom-margin-left {
-  margin-left: 20px;
-}
 .align-inline {
   margin-top: -25.5px;
+}
+.d-flex {
+  align-items: baseline;
+}
+.bi:hover {
+  color: #007bff;
+  cursor: pointer;
+}
+.header {
+  margin-bottom: -30px;
+}
+.done,
+.undone,
+.edit,
+.description {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.done {
+  background-color: #28a745;
+}
+.undone {
+  background-color: #dc3545;
+}
+.edit {
+  background-color: #007bff;
+}
+.alignItems {
+  margin-left: -14px;
+}
+.edit-input {
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }

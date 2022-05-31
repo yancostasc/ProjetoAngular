@@ -8,10 +8,10 @@ Para acessar você só precisa clicar em um desses dois links:
 
 [Visualizar pelo Stackblitz](https://stackblitz.com/edit/project-angular-yan)
 
-[Visualizar em tela cheia](https://project-angular-yan.stackblitz.io/task-list)
-
+[Visualizar em tela cheia](https://project-angular-yan.stackblitz.io)
 
 Depois, só navegar pela sidebar esquerda.
+
 - Astronauta: Autônomo Finito Determinístico
 - Espião: Autônomo Finito Não-Determinístico
 - Lista de Tarefas / Tasklist

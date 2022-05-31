@@ -10,7 +10,7 @@ Para acessar você só precisa clicar em um desses dois links:
 
 [Visualizar em tela cheia](https://project-angular-yan.stackblitz.io)
 
-Depois, só navegar pela sidebar esquerda.
+Depois só navegar pela sidebar esquerda.
 
 - Astronauta: Autônomo Finito Determinístico
 - Espião: Autônomo Finito Não-Determinístico

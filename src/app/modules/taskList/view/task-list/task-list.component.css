@@ -34,4 +34,6 @@
   border-top: none;
   border-left: none;
   border-right: none;
+  outline-style: none;
+  box-shadow: none;
 }

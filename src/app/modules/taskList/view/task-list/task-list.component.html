@@ -29,6 +29,10 @@
       <!-- Title input -->
       <div class="form-outline mb-2">
         <input
+          [ngClass]="{
+            'uk-form-danger':
+              form.controls.title.invalid && !form.controls.title.pristine
+          }"
           type="text"
           class="form-control p-2"
           placeholder="Título"
@@ -95,7 +99,7 @@
               (click)="markAsDone(todo)"
             ></i>
           </a>
-          <!-- Titulo e edit do titulo -->
+          <!-- Title  -->
           <div class="text-uppercase p-2 flex-fill">
             {{ todo.title }}
           </div>
@@ -106,7 +110,7 @@
             <i class="bi bi-trash3-fill p-2"></i>
           </a>
         </li>
-        <!-- Description e edit do description -->
+        <!-- Description -->
         <li
           class="list-group-item d-flex align-items-center description"
           *ngIf="todo.description"
@@ -119,7 +123,7 @@
         <li class="list-group-item edit"></li>
 
         <li class="list-group-item d-flex align-items-center">
-          <!-- Titulo e edit do titulo -->
+          <!-- Edit Title -->
           <div class="text-uppercase p-2 flex-fill">
             <input
               type="text"
@@ -127,14 +131,21 @@
               placeholder="Novo Título"
               [value]="todo.title"
               (change)="changeFn($event, todo, true)"
+              [ngClass]="{
+                'uk-form-danger': todo.title === ''
+              }"
             />
           </div>
 
-          <a (click)="markAsEdit(todo)">
+          <button
+            (click)="markAsEdit(todo)"
+            class="btn"
+            [disabled]="todo.title === ''"
+          >
             <i class="bi bi-pen p-2"></i>
-          </a>
+          </button>
         </li>
-        <!-- Description e edit do description -->
+        <!-- Edit Description -->
         <li
           class="list-group-item d-flex align-items-center description"
           *ngIf="todo.description"

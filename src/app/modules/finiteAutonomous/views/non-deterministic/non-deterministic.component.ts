@@ -30,25 +30,32 @@ export class NonDeterministicComponent implements OnInit {
   }
 
   runAfnd(autonomo: Automato, sequence: string[]) {
-    const lastIndex = sequence[0].slice(-1).toString();
     const firstIndex = sequence[0].toString();
     const valueZero = autonomo.alphabet[0].toString();
-    const valueOne = autonomo.alphabet[1].toString();
 
     if (this.isEqualZero(firstIndex, valueZero)) {
       console.log('estado atual: q1');
       this.accept = false;
 
-      if (this.isEqualOne(lastIndex, valueOne)) {
-        console.log('estado atual: q2');
+      this.nextStates(autonomo, sequence);
+    }
+  }
 
-        if (this.isEqualZero(lastIndex, valueZero)) {
-          console.log('estado atual: q3');
+  nextStates(autonomo, sequence) {
+    const lastIndex = sequence[0].slice(-1).toString();
+    const valueZero = autonomo.alphabet[0].toString();
+    const valueOne = autonomo.alphabet[1].toString();
 
-          if (this.isEqualOne(lastIndex, valueOne)) {
-            console.log('estado atual: q4');
-            this.accept = true;
-          }
+    console.log(lastIndex, valueOne);
+    if (this.isEqualOne(lastIndex, valueOne)) {
+      console.log('estado atual: q2');
+
+      if (this.isEqualZero(lastIndex, valueZero)) {
+        console.log('estado atual: q3');
+
+        if (this.isEqualOne(lastIndex, valueOne)) {
+          console.log('estado atual: q4');
+          this.accept = true;
         }
       }
     }

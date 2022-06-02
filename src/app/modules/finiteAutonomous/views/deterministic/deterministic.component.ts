@@ -15,13 +15,6 @@ export class DeterministicComponent implements OnInit {
   autonomo: Automato;
   sequence: string[];
 
-  private evenOddAutonomous(autonomo: Automato, sequence: string[]) {
-    if (this.isEqual(autonomo, sequence)) {
-      return (this.accept = true);
-    }
-    return (this.accept = false);
-  }
-
   private isEqual(autonomo: Automato, sequence: string[]): boolean {
     return sequence[0].slice(-1).toString() === autonomo.finalState.toString();
   }
@@ -40,5 +33,12 @@ export class DeterministicComponent implements OnInit {
     };
 
     this.evenOddAutonomous(this.autonomo, this.sequence);
+  }
+
+  private evenOddAutonomous(autonomo: Automato, sequence: string[]) {
+    if (this.isEqual(autonomo, sequence)) {
+      return (this.accept = true);
+    }
+    return (this.accept = false);
   }
 }

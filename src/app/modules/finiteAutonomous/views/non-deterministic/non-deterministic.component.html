@@ -15,12 +15,17 @@
     </h3>
 
     <section>
-      <img src="" alt="" />
+      <img src="https://i.imgur.com/pEukTZg.png" alt="" />
     </section>
 
     <section>
       <div class="uk-column-1-2">
-        <input placeholder="Sequência" class="uk-input" />
+        <input
+          [ngModel]="inputValue"
+          (ngModelChange)="onChange($event)"
+          placeholder="Sequência"
+          class="uk-input"
+        />
         <div>
           <a class="uk-text-success">
             Aceita
@@ -31,6 +36,12 @@
             <i class="fa-solid fa-xmark"></i>
           </a>
         </div>
+      </div>
+      <div class="column uk-margin-top" *ngIf="sequence">
+        Estado: {{ autonomo.states }}<br />
+        Alfabeto: {{ autonomo.alphabet }}<br />
+        Estado Inicial: {{ autonomo.initialState }}<br />
+        Estado de Aceitação: {{ autonomo.finalState }}<br />
       </div>
     </section>
   </div>

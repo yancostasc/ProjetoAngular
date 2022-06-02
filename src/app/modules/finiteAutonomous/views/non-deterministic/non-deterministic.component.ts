@@ -35,22 +35,30 @@ export class NonDeterministicComponent implements OnInit {
     const valueZero = autonomo.alphabet[0].toString();
     const valueOne = autonomo.alphabet[1].toString();
 
-    if (firstIndex === valueZero) {
+    if (this.isEqualZero(firstIndex, valueZero)) {
       console.log('estado atual: q1');
       this.accept = false;
 
-      if (lastIndex === valueOne) {
+      if (this.isEqualOne(lastIndex, valueOne)) {
         console.log('estado atual: q2');
 
-        if (lastIndex === valueZero) {
+        if (this.isEqualZero(lastIndex, valueZero)) {
           console.log('estado atual: q3');
 
-          if (lastIndex === valueOne) {
+          if (this.isEqualOne(lastIndex, valueOne)) {
             console.log('estado atual: q4');
             this.accept = true;
           }
         }
       }
     }
+  }
+
+  isEqualZero(index, valueZero): boolean {
+    return index === valueZero;
+  }
+
+  isEqualOne(index, valueOne): boolean {
+    return index === valueOne;
   }
 }

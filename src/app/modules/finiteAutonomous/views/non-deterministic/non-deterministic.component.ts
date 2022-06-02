@@ -31,14 +31,25 @@ export class NonDeterministicComponent implements OnInit {
 
   runAfnd(autonomo: Automato, sequence: string[]) {
     const lastIndex = sequence[0].slice(-1).toString();
+    const firstIndex = sequence[0].toString();
+    const valueZero = autonomo.alphabet[0].toString();
+    const valueOne = autonomo.alphabet[1].toString();
 
-    while (lastIndex === autonomo.alphabet[0]) {
+    if (firstIndex === valueZero) {
       console.log('estado atual: q1');
+      this.accept = false;
 
-      if (lastIndex === autonomo.alphabet[1]) {
+      if (lastIndex === valueOne) {
         console.log('estado atual: q2');
 
-        
+        if (lastIndex === valueZero) {
+          console.log('estado atual: q3');
+
+          if (lastIndex === valueOne) {
+            console.log('estado atual: q4');
+            this.accept = true;
+          }
+        }
       }
     }
   }
